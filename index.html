@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Sing the song</title>
+  </head>
+  <body>
+    <main>
+      <h1 style="font-size: 2rem;">
+        Sing the song
+      </h1>
+      <!-- <form class="form">
+        <i class="fas fa-search"
+          ><input type="search" placeholder="search for genre"
+        /></i>
+      </form> -->
+    </main>
+
+    <div class="container">
+      <!-- <h3>Pick a genre to sing along to</h3> -->
+      <div class="cards">
+        <div class="cards-inner" onclick="changecolor()" id="1" tabindex="1">
+          <div>
+            <i class="fas fa-music"></i>
+          </div>
+
+          <div>
+            <h4>Afrobeat</h4>
+            <small>Artiste</small>
+            <p>
+              Afrobeat is a music genre which involves the combination of elements of West African musical styles.
+            </p>
+          </div>
+        </div>
+
+        <div class="cards-inner" onclick="changecolor()" id="2" tabindex="2">
+          <div>
+            <i class="fas fa-music"></i>
+          </div>
+
+          <div>
+            <h4>Hip-Hop</h4>
+            <small>Artiste</small>
+            <p>
+              popular music developed in the United States by inner-city African Americans and Latino Americans.
+            </p>
+          </div>
+        </div>
+
+        <div class="cards-inner" onclick="changecolor()"  id="3" tabindex="3">
+          <div>
+            <i class="fas fa-music"></i>
+          </div>
+
+          <div>
+            <h4>Country</h4>
+            <small>Artistes</small>
+            <p>
+              popular music that originated with blues, church music such as Southern gospel and spirituals.
+            </p>
+          </div>
+        </div>
+
+        <div class="cards-inner" onclick="changecolor()" id="4" tabindex="4">
+          <div>
+            <i class="fas fa-music"></i>
+          </div>
+
+          <div>
+            <h4>Jazz</h4>
+            <small>Artistes</small>
+            <p>
+              Jazz is a music genre that originated in the African-American communities of New Orleans, United States.
+            </p>
+          </div>
+        </div>
+
+        <div class="cards-inner" onclick="changecolor()" id="5" tabindex="5">
+          <div>
+            <i class="fas fa-music"></i>
+          </div>
+
+          <div>
+            <h4>Blues</h4>
+            <small>Artistes</small>
+            <p>
+              Genre and musical form which was originated in the Deep South of the United States by African-Americans
+            </p>
+          </div>
+        </div>
+
+        <div class="cards-inner" onclick="changecolor()" id="6" tabindex="6">
+          <div>
+            <i class="fas fa-music"></i>
+          </div>
+
+          <div>
+            <h4>Popular Music</h4>
+            <small>Artistes</small>
+            <p>
+              Music with wide appeal that is typically distributed to large audiences through the music industry
+            </p>
+          </div>
+        </div>
+
+        <div class="cards-inner" onclick="changecolor(), console.log('if it works ehhn')" id="7" tabindex="7">
+          <div>
+            <i class="fas fa-music"></i>
+          </div>
+
+          <div>
+            <h4>Electronic Music</h4>
+            <small>Artistes</small>
+            <p>
+              Employs electronic musical instruments, digital instruments, or circuitry-based music technology in its creation.
+            </p>
+          </div>
+        </div>
+
+        <div class="cards-inner" onclick="changecolor()" id="8" tabindex="8">
+          <div>
+            <i class="fas fa-music"></i>
+          </div>
+
+          <div>
+            <h4>Classsical Music</h4>
+            <small>Artistes</small>
+            <p>
+              The term may also refer to music evidencing similar formal qualities in non-Western cultures.
+            </p>
+          </div>
+        </div>
+
+        <div class="cards-inner" onclick="changecolor()" id="9" tabindex="9">
+          <div>
+            <i class="fas fa-music"></i>
+          </div>
+
+          <div>
+            <h4>Dance Music</h4>
+            <small>Artiste</small>
+            <p>
+              Dance music is music composed specifically to facilitate or accompany dancing.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="timer-container">
+      <div onclick="timer();disableBtn()">
+        <button id="game-btn">Start Game</button>
+      </div>
+    </div>
+    <div id="countdown"></div>
+    
+  </body>
+
+  <script>
+    const items = document.querySelectorAll(".cards-inner")
+
+    items.forEach(card => card.addEventListener('click', newColor))
+    
+    function newColor(){
+      console.log(this);
+      //this will chnagethe color of the clicked card
+      this.style.background='blue';
+      this.style.color='white'
+    }
+
+
+  function disableBtn(){
+    const button = document.querySelector('button');
+
+    console.log('this is supposed to disable the button')
+    document.getElementById("game-btn").innerHTML='Singing...';
+    document.getElementById("game-btn").style.background='blue';
+    button.disabled=true;
+  }
+
+  function timer(){
+    var timeleft = 20;
+  var downloadTimer = setInterval(function(){
+    if(timeleft <= 0){
+      console.log('time is over, refresh the browser')
+      clearInterval(downloadTimer);
+      document.getElementById("countdown").innerHTML = "Game Over";
+      //this is to refresh the browser
+      location.reload();
+    } else {
+      document.getElementById("countdown").innerHTML = timeleft + " seconds remaining";
+    }
+    timeleft -= 1;
+  }, 2000);
+  }
+   
+  
+  </script>
+  
+</html>
